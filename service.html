@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Service App</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f205b3, #4f34db);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        nav {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Location Dropdown */
+        .location-dropdown {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .location-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+
+        .location-btn:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .location-options {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 45px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .location-options select {
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        .location-options button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #f205b3, #4f34db);
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Services Section */
+        .services {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            gap: 30px;
+            position: relative;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.5s, box-shadow 0.5s, background 0.5s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .service-card i {
+            font-size: 50px;
+            margin-bottom: 15px;
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover i {
+            transform: rotate(15deg);
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+        }
+
+        /* Floating background circles */
+        .background-circles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .background-circles span {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            animation: float 20s infinite;
+        }
+
+        .background-circles span:nth-child(1) { width: 200px; height: 200px; left: 10%; top: 20%; animation-duration: 25s; }
+        .background-circles span:nth-child(2) { width: 150px; height: 150px; left: 70%; top: 40%; animation-duration: 30s; }
+        .background-circles span:nth-child(3) { width: 300px; height: 300px; left: 40%; top: 60%; animation-duration: 35s; }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        @media(max-width: 600px) {
+            .services {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo" onclick="window.location.href='index.html'">ServiceApp</div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="soon.html">About</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="soon.html">Contact</a></li>
+             <li><a href="login.html">Login</a></li>
+        </ul>
+
+        <!-- Location Dropdown -->
+        <div class="location-dropdown">
+            <button class="location-btn">
+                <i class="fas fa-map-marker-alt"></i> Birtamode
+            </button>
+            <div class="location-options">
+                <select id="locationSelect">
+                    <option value="Birtamode">Birtamode</option>
+                    <option value="Charpane">Charpane</option>
+                    <option value="Bhadrapur">Bhadrapur</option>
+                    <option value="Pokhera">Pokhera</option>
+                    <option value="Kathmandu">Kathmandu</option>
+                </select>
+                <button onclick="updateLocation()">Update Location</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Section -->
+    <div class="services">
+        <div class="service-card" onclick="window.location.href='worker.html'">
+            <i class="fas fa-wrench"></i>
+            <h3>Plumber</h3>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-hammer"></i>
+            <h3>Carpenter</h3>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-user-md"></i>
+            <h3>Doctor</h3>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-utensils"></i>
+            <h3>Chef</h3>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-bolt"></i>
+            <h3>Electrician</h3>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-car"></i>
+            <h3>Driver</h3>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-broom"></i>
+            <h3>Cleaner</h3>
+        </div>
+    </div>
+
+    <!-- Animated background circles -->
+    <div class="background-circles">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        const locationBtn = document.querySelector('.location-btn');
+        const locationOptions = document.querySelector('.location-options');
+        const locationSelect = document.getElementById('locationSelect');
+
+        locationBtn.addEventListener('click', () => {
+            locationOptions.style.display = locationOptions.style.display === 'block' ? 'none' : 'block';
+        });
+
+        function updateLocation() {
+            const selected = locationSelect.value;
+            locationBtn.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${selected}`;
+            locationOptions.style.display = 'none';
+            alert(`Location updated to ${selected}`);
+        }
+
+        // Close dropdown if clicked outside
+        document.addEventListener('click', function(event) {
+            if (!locationBtn.contains(event.target) && !locationOptions.contains(event.target)) {
+                locationOptions.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

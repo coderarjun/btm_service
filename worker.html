@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Service Name] - Service App</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body { min-height: 100vh; background: #fff; display: flex; flex-direction: column; }
+        
+        /* Navbar */
+        nav {
+            width: 100%; background: rgba(0,0,0,0.05); padding: 20px 50px;
+            display: flex; justify-content: space-between; align-items: center; position: sticky; top:0; z-index:100;
+        }
+        nav .logo { font-size: 24px; font-weight: 600; color: #f205b3; }
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav ul li a { text-decoration: none; color: #4f34db; font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: #f205b3; }
+
+        /* Workers Section */
+        .workers {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 80px 50px;
+        }
+        .worker-card {
+            background: #f9f9f9;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.4s, box-shadow 0.4s;
+            text-align: center;
+        }
+        .worker-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .worker-card img {
+            width: 120px; height: 120px; border-radius: 10px; object-fit: cover; margin-bottom: 15px;
+        }
+        .worker-card h3 { font-size: 20px; margin-bottom: 5px; color: #333; }
+        .worker-card p { font-size: 14px; margin-bottom: 5px; color: #555; }
+        .worker-card .call-btn {
+            margin-top: 10px; width: 80%; padding: 12px; border: none; border-radius: 12px;
+            background: linear-gradient(135deg, #f205b3, #4f34db); color: #fff; font-weight: 600;
+            cursor: pointer; transition: 0.3s;
+        }
+        .worker-card .call-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        @media(max-width: 600px) {
+            .workers { padding: 50px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">ServiceApp</div>
+         <ul>
+             <li><a href="service.html">Back to Services</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="soon.html">About</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="soon.html">Contact</a></li>
+             <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Workers Grid -->
+    <div class="workers">
+        <!-- Worker 1 -->
+        <div class="worker-card">
+            <img src="Image 2025-05-22.jpeg" alt="[Service Name] Worker">
+            <h3>Arjun</h3>
+            <p>City, State</p>
+            <p>Phone: +1 123 456 7890</p>
+            <p>Experience: 3+ years</p>
+            <p>Service Charge: $50/hr</p>
+            <button class="call-btn" onclick="alert('Calling Arjun...')">Call</button>
+        </div>
+        <!-- Worker 2 -->
+        <div class="worker-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2716/2716808.png" alt="[Service Name] Worker">
+            <h3>Pranish</h3>
+            <p>City, State</p>
+            <p>Phone: +1 987 654 3210</p>
+            <p>Experience: 5+ years</p>
+            <p>Service Charge: $55/hr</p>
+            <button class="call-btn" onclick="alert('Calling Pranish...')">Call</button>
+        </div>
+        <!-- Worker 3 -->
+        <div class="worker-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2716/2716808.png" alt="[Service Name] Worker">
+            <h3>Prabin</h3>
+            <p>City, State</p>
+            <p>Phone: +1 456 789 1230</p>
+            <p>Experience: 4+ years</p>
+            <p>Service Charge: $50/hr</p>
+            <button class="call-btn" onclick="alert('Calling Prabin...')">Call</button>
+        </div>
+        <!-- Worker 4 -->
+        <div class="worker-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2716/2716808.png" alt="[Service Name] Worker">
+            <h3>Jenisha</h3>
+            <p>City, State</p>
+            <p>Phone: +1 321 654 9870</p>
+            <p>Experience: 3+ years</p>
+            <p>Service Charge: $45/hr</p>
+            <button class="call-btn" onclick="alert('Calling Jenisha...')">Call</button>
+        </div>
+    </div>
+
+</body>
+</html>
